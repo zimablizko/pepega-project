@@ -1,0 +1,15 @@
+@import "./theme";
+@import "./components/game-page.scss";
+@import "./components/sidebar.scss";
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+mat-drawer-container {
+  height: 100%;
+}

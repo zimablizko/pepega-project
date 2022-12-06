@@ -1,0 +1,14 @@
+.game-page {
+  margin: 30px;
+  .actions {
+    .action {
+      cursor: pointer;
+      color: rgb(85, 85, 168);
+
+      &:hover {
+        text-decoration: underline;
+        color: rgb(70, 70, 139);
+      }
+    }
+  }
+}

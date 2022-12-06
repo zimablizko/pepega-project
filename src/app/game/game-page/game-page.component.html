@@ -1,0 +1,32 @@
+<mat-drawer-container>
+  <mat-drawer mode="side" opened>Drawer content</mat-drawer>
+  <mat-drawer-content>
+    <div class="game-page">
+      <div *ngIf="currentLocation$ | async as currentLocation">
+        <h2>{{ currentLocation.name }}</h2>
+        <p>{{ currentLocation.description }}</p>
+        <div *ngIf="objects$ | async as objects" class="actions">
+          <ng-container *ngFor="let objectId of currentLocation.objectIds">
+            <p>You see a {{ objects[objectId].name }}</p>
+            <ng-container *ngFor="let action of objects[objectId].actions">
+              <p class="action" (click)="callActionScript(action.script)">
+                {{ action.text }}
+              </p>
+            </ng-container>
+          </ng-container>
+        </div>
+        <h3>Go to:</h3>
+        <div *ngIf="locations$ | async as locations" class="actions">
+          <ng-container *ngFor="let direction of currentLocation.directions">
+            <p
+              (click)="changeLocation(locations[direction.locationId])"
+              class="action"
+            >
+              {{ locations[direction.locationId].name }}
+            </p>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>
